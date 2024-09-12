@@ -38,11 +38,11 @@ public class ProdutoWebClient {
     }
 
     public Mono<Produto> updateProduto(Long id, Produto produto) {
-        return webClient.put()
-                .uri("/{id}", id)
-                .bodyValue(produto)
-                .retrieve()
-                .bodyToMono(Produto.class);
+        return webClient.put() // Usar PUT para atualização
+                .uri("/{id}", id) // Passar o id na URI
+                .bodyValue(produto) // Enviar o produto como o corpo da requisição
+                .retrieve() // Recuperar a resposta
+                .bodyToMono(Produto.class); // Converter a resposta em um Produto
     }
 }
 
