@@ -36,4 +36,16 @@ public class ProdutoWebClient {
                 .retrieve()
                 .bodyToMono(Void.class);
     }
+
+    public Mono<Produto> updateProduto(Long id, Produto produto) {
+        return webClient.put() // Usar PUT para atualização
+                .uri("/{id}", id) // Passar o id na URI
+                .bodyValue(produto) // Enviar o produto como o corpo da requisição
+                .retrieve() // Recuperar a resposta
+                .bodyToMono(Produto.class); // Converter a resposta em um Produto
+    }
 }
+
+
+
+
